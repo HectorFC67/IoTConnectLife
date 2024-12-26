@@ -54,6 +54,16 @@ This project runs on a Raspberry Pi and integrates:
 
 ---
 
+## What Does ConnectLife Do?
+
+**ConnectLife** is a project designed to simulate the security and monitoring system of a smart home. It continuously monitors the ultrasonic sensor, which acts as a virtual peephole at the front door, detecting whether there is something near. The system defines "near" as being less than 10 cm away. When this condition is met, the buzzer is activated, sounding an alert until the object moves farther than 10 cm away.
+
+Additionally, by pressing a button, the system switches modes. Instead of using the ultrasonic sensor, it starts using the Temperature & Humidity Sensor (DHT11) to measure the indoor temperature and humidity. Pressing the button again switches the system back to ultrasonic sensor mode.
+
+All data collected by the system is displayed in real-time on an LCD screen for the user's convenience. Moreover, the system logs all collected data into **InfluxDB** and **Grafana**, enabling the user to monitor historical data locally in an easy-to-use interface.
+
+---
+
 ## Installation
 
 ### 1. Update Raspberry Pi
