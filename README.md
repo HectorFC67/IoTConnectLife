@@ -122,8 +122,7 @@ Access Grafana in a browser at http://<RaspberryPiIP>:3000. Default credentials:
 ```plaintext
 .
 ├── conectLife.py            # Main Python script
-├── README.md                # This file
-└── ...
+└──README.md                # This file
 ```
 conectLife.py: Contains the code to read from sensors, write data to InfluxDB, and display on LCD.
 
