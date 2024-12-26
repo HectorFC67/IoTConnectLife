@@ -167,7 +167,7 @@ Watch your real-time sensor data and alert triggers in Grafana’s dashboard.
 
 ## Troubleshooting
 
-- If Grafana doesn't display data:
+If Grafana doesn't display data:
   1. Ensure that `conectLife.py` is running and properly logging data to InfluxDB.
   2. Verify InfluxDB's service status and inspect the logs for errors.
   3. Check your database configuration:
@@ -179,7 +179,7 @@ USE sensorbicho
 SELECT * FROM sensores LIMIT 10
 ```
 
-- If data still doesn't appear in Grafana, review your query syntax or ensure the correct time filter is applied.
+If data still doesn't appear in Grafana, review your query syntax or ensure the correct time filter is applied.
 
 ---
 
