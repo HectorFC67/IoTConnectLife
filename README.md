@@ -52,7 +52,7 @@ Make sure to enable I2C on your Raspberry Pi (if you use an I2C-based LCD).
 sudo apt update && sudo apt upgrade -y
 ```
 
-2. Install Python Dependencies
+### 2. Install Python Dependencies
 
 ```bash
 sudo apt install python3-pip -y
@@ -60,7 +60,7 @@ pip3 install Adafruit_DHT influxdb
 ```
 (Adapt as needed for any additional libraries like grove.py.)
 
-3. Install and Configure InfluxDB
+### 3. Install and Configure InfluxDB
 
 ```bash
 sudo apt install influxdb -y
@@ -75,7 +75,7 @@ CREATE DATABASE sensorbicho
 EXIT
 ```
 
-4. Install and Configure Grafana
+### 4. Install and Configure Grafana
 
 ```bash
 sudo apt install software-properties-common wget -y
@@ -89,14 +89,14 @@ sudo systemctl enable grafana-server
 
 Access Grafana in a browser at http://<RaspberryPiIP>:3000. Default credentials: admin / admin (you'll be prompted to change the password).
 
-5. Configure InfluxDB as a Data Source in Grafana
+### 5. Configure InfluxDB as a Data Source in Grafana
   1. In Grafana, go to Configuration (gear icon) > Data Sources.
   2. Click Add data source and select InfluxDB.
   3. Set:
     - URL: http://localhost:8086
     - Database: sensorbicho
     - (No token needed for InfluxDB 1.x unless you configured authentication.)
-  4. Click Save & Test.
+  #### 4. Click Save & Test.
 
 ## Project Structure
 
@@ -110,21 +110,21 @@ conectLife.py: Contains the code to read from sensors, write data to InfluxDB, a
 
 ## Usage
 
-1. Wire up the sensors according to your Raspberry Pi GPIO pins defined in the code (TRIG_ECHO, BUZZER_PIN, etc.).
-2. Run InfluxDB:
+### 1. Wire up the sensors according to your Raspberry Pi GPIO pins defined in the code (TRIG_ECHO, BUZZER_PIN, etc.).
+### 2. Run InfluxDB:
 
 ```bash
 sudo systemctl start influxdb
 ```
 
-3. Run the Python script:
+### 3. Run the Python script:
 
 ```bash
 python conectLife.py
 ```
 
-4. Open Grafana in your browser at http://<RaspberryPiIP>:3000.
-5. Create or open a dashboard, add a panel, and configure queries (InfluxQL) to view your data. For example:
+### 4. Open Grafana in your browser at http://<RaspberryPiIP>:3000.
+### 5. Create or open a dashboard, add a panel, and configure queries (InfluxQL) to view your data. For example:
 
 ```bash
 SELECT mean("temperature") 
@@ -137,10 +137,10 @@ Watch your real-time sensor data and alert triggers in Grafana’s dashboard.
 
 ## How It Works
 
-1. conectLife.py initializes GPIO, reads distance from the ultrasonic sensor, and checks a threshold for triggering the buzzer.
-2. It also reads temperature/humidity from the DHT sensor when a button is pressed.
-3. All sensor data is displayed on the LCD and then sent to InfluxDB via the Python InfluxDB client.
-4. Grafana connects to InfluxDB to visualize the time-series data in customizable graphs.
+### 1. conectLife.py initializes GPIO, reads distance from the ultrasonic sensor, and checks a threshold for triggering the buzzer.
+### 2. It also reads temperature/humidity from the DHT sensor when a button is pressed.
+### 3. All sensor data is displayed on the LCD and then sent to InfluxDB via the Python InfluxDB client.
+### 4. Grafana connects to InfluxDB to visualize the time-series data in customizable graphs.
 
 ## Troubleshooting
 If no data appears in Grafana, ensure your Python script is running and that InfluxDB is started.
