@@ -2,19 +2,30 @@
 
 This project runs on a Raspberry Pi and integrates:
 
-- A DHT11 temperature and humidity sensor
-- An ultrasonic distance sensor
-- A buzzer and an LCD display
-- Data logging to InfluxDB
-- Data visualization through Grafana
+- A **DHT11** temperature and humidity sensor.
+- An **ultrasonic distance sensor**.
+- A **buzzer** and an **LCD display**.
+- **Data logging** to InfluxDB.
+- **Data visualization** through Grafana.
+
+---
 
 ## Features
 
-1. **Distance Detection**: The ultrasonic sensor measures distance. If a certain threshold is reached, a buzzer and on-screen alert will trigger.
-2. **Temperature & Humidity**: The DHT11 sensor records temperature and humidity.
-3. **LCD Display**: Shows real-time readings (distance, temperature, humidity) and system messages.
-4. **InfluxDB**: Stores sensor data (distance, temperature, humidity) as time-series.
-5. **Grafana Dashboards**: Visualizes data from InfluxDB in customizable charts.
+1. **Distance Detection**:  
+   The ultrasonic sensor measures distance. If a certain threshold is reached, a buzzer and on-screen alert will trigger.
+
+2. **Temperature & Humidity Monitoring**:  
+   The DHT11 sensor records temperature and humidity.
+
+3. **LCD Display**:  
+   Shows real-time readings (distance, temperature, humidity) and system messages.
+
+4. **Data Storage in InfluxDB**:  
+   Logs all sensor data (distance, temperature, humidity) as time-series data.
+
+5. **Grafana Dashboards**:  
+   Visualizes data stored in InfluxDB using customizable charts.
 
 ---
 
@@ -35,13 +46,11 @@ This project runs on a Raspberry Pi and integrates:
 - **Python 3**
 - **InfluxDB (v1.x)**
 - **Grafana**
-- Python libraries:
+- Required Python libraries:
   - `RPi.GPIO`
   - `Adafruit_DHT`
   - `influxdb`
   - `grove.py` (if using Grove libraries)
-
-Make sure to enable I2C on your Raspberry Pi (if you use an I2C-based LCD).
 
 ---
 
@@ -100,13 +109,15 @@ Access Grafana in a browser at http://<RaspberryPiIP>:3000. Default credentials:
 
 ## Project Structure
 
-```bash
+```plaintext
 .
 ├── conectLife.py            # Main Python script
 ├── README.md                # This file
 └── ...
 ```
 conectLife.py: Contains the code to read from sensors, write data to InfluxDB, and display on LCD.
+
+---
 
 ## Usage
 
@@ -135,22 +146,41 @@ GROUP BY time($interval) fill(null)
 
 Watch your real-time sensor data and alert triggers in Grafana’s dashboard.
 
+---
+
 ## How It Works
 
-### 1. conectLife.py initializes GPIO, reads distance from the ultrasonic sensor, and checks a threshold for triggering the buzzer.
-### 2. It also reads temperature/humidity from the DHT sensor when a button is pressed.
-### 3. All sensor data is displayed on the LCD and then sent to InfluxDB via the Python InfluxDB client.
-### 4. Grafana connects to InfluxDB to visualize the time-series data in customizable graphs.
+1. **Data Collection**:  
+   - The ultrasonic sensor measures distances and checks against a threshold to trigger alerts.
+   - The DHT11 sensor captures temperature and humidity values when prompted.
+
+2. **Data Display**:  
+   - All real-time readings (distance, temperature, humidity) and alerts are displayed on an LCD.
+
+3. **Data Logging**:  
+   - Sensor data is logged into an InfluxDB time-series database for storage.
+
+4. **Data Visualization**:  
+   - Grafana retrieves the stored data from InfluxDB and visualizes it in customizable dashboards.
+
+---
 
 ## Troubleshooting
-If no data appears in Grafana, ensure your Python script is running and that InfluxDB is started.
 
-Check InfluxDB logs or CLI:
-
+- If Grafana doesn't display data:
+  1. Ensure that `conectLife.py` is running and properly logging data to InfluxDB.
+  2. Verify InfluxDB's service status and inspect the logs for errors.
+  3. Check your database configuration:
+     - Database name in `conectLife.py` matches the one configured in Grafana.
+  4. Use the InfluxDB CLI to query the database and confirm data insertion.
 ```bash
 influx
 USE sensorbicho
 SELECT * FROM sensores LIMIT 10
 ```
 
-Make sure you used the correct database name in your script and Grafana data source.
+- If data still doesn't appear in Grafana, review your query syntax or ensure the correct time filter is applied.
+
+---
+
+This document provides all necessary information for setting up, using, and troubleshooting the **IoT Connect Life** project.
