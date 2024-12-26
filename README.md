@@ -1,25 +1,28 @@
 # IoT Connect Life
 This project runs on a Raspberry Pi and integrates:
 
-A DHT11 temperature and humidity sensor
-An ultrasonic distance sensor
-A buzzer and an LCD display
-Data logging to InfluxDB
-Data visualization through Grafana
-Features
-Distance Detection: The ultrasonic sensor measures distance. If a certain threshold is reached, a buzzer and on-screen alert will trigger.
+- A DHT11 temperature and humidity sensor
+- An ultrasonic distance sensor
+- A buzzer and an LCD display
+- Data logging to InfluxDB
+- Data visualization through Grafana
+
+## Features
+1. Distance Detection: The ultrasonic sensor measures distance. If a certain threshold is reached, a buzzer and on-screen alert will trigger.
 Temperature & Humidity: The DHT11 sensor records temperature and humidity.
 LCD Display: Shows real-time readings (distance, temperature, humidity) and system messages.
 InfluxDB: Stores sensor data (distance, temperature, humidity) as time-series.
 Grafana Dashboards: Visualizes data from InfluxDB in customizable charts.
-Hardware Requirements
-Raspberry Pi (e.g., Raspberry Pi 3, 4, etc.)
-Ultrasonic Sensor (HC-SR04 or similar; wired to GPIO)
-DHT11 (or DHT22) temperature/humidity sensor
-Buzzer (wired to GPIO pin)
-LCD Display (I2C or Grove-based LCD)
-Network Connection (for installing packages and using Grafana)
-Software Requirements
+
+## Hardware Requirements
+- Raspberry Pi (e.g., Raspberry Pi 3, 4, etc.)
+- Ultrasonic Sensor (HC-SR04 or similar; wired to GPIO)
+- DHT11 (or DHT22) temperature/humidity sensor
+- Buzzer (wired to GPIO pin)
+- LCD Display (I2C or Grove-based LCD)
+- Network Connection (for installing packages and using Grafana)
+
+## Software Requirements
 Raspberry Pi OS (Debian-based)
 Python 3
 InfluxDB (v1.x)
