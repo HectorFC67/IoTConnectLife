@@ -130,27 +130,25 @@ conectLife.py: Contains the code to read from sensors, write data to InfluxDB, a
 
 ## Usage
 
-### 1. Wire up the sensors according to your Raspberry Pi GPIO pins defined in the code (TRIG_ECHO, BUZZER_PIN, etc.).
-### 2. Run InfluxDB:
+1. Wire up the sensors according to your Raspberry Pi GPIO pins defined in the code (TRIG_ECHO, BUZZER_PIN, etc.).
+2. Run InfluxDB:
 
 ```bash
 sudo systemctl start influxdb
 ```
 
-### 3. Run the Python script:
+3. Run the Python script:
 
 ```bash
 python conectLife.py
 ```
 
-### 4. Open Grafana in your browser at http://<RaspberryPiIP>:3000.
-### 5. Create or open a dashboard, add a panel, and configure queries (InfluxQL) to view your data. For example:
+4. Open Grafana in your browser at http://<RaspberryPiIP>:3000.
+5. Create or open a dashboard, add a panel, and configure queries (InfluxQL) to view your data. For example:
 
 ```bash
 SELECT mean("temperature") 
-FROM "sensores" 
-WHERE ("sensor"='dht11') AND $timeFilter 
-GROUP BY time($interval) fill(null)
+FROM "sensores"
 ```
 
 Watch your real-time sensor data and alert triggers in Grafana’s dashboard.
