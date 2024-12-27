@@ -42,7 +42,7 @@ This project runs on a Raspberry Pi and integrates:
 
 ## Software Requirements
 
-- **Raspberry Pi OS (Debian-based)**
+- **Raspberry Pi OS**
 - **Python 3**
 - **InfluxDB (v1.x)**
 - **Grafana**
