@@ -131,7 +131,13 @@ conectLife.py: Contains the code to read from sensors, write data to InfluxDB, a
 ## Usage
 
 1. Wire up the sensors according to your Raspberry Pi GPIO pins defined in the code (TRIG_ECHO, BUZZER_PIN, etc.).
-2. Run InfluxDB:
+2. Activate the enviorament:
+
+```bash
+source kklcd/bin/activate
+```
+
+3. Run InfluxDB:
 
 ```bash
 sudo systemctl start influxdb
