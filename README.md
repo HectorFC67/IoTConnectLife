@@ -145,14 +145,14 @@ sudo systemctl start grafana-server
 sudo systemctl enable grafana-server
 ```
 
-3. Run the Python script:
+4. Run the Python script:
 
 ```bash
 python conectLife.py
 ```
 
-4. Open Grafana in your browser at http://(RaspberryPiIP):3000.
-5. Create or open a dashboard, add a panel, and configure queries (InfluxQL) to view your data. For example:
+5. Open Grafana in your browser at http://(RaspberryPiIP):3000.
+6. Create or open a dashboard, add a panel, and configure queries (InfluxQL) to view your data. For example:
 
 ```bash
 SELECT mean("temperature") 
