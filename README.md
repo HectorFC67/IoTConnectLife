@@ -151,7 +151,7 @@ sudo systemctl enable grafana-server
 python conectLife.py
 ```
 
-4. Open Grafana in your browser at http://<RaspberryPiIP>:3000.
+4. Open Grafana in your browser at http://(RaspberryPiIP):3000.
 5. Create or open a dashboard, add a panel, and configure queries (InfluxQL) to view your data. For example:
 
 ```bash
