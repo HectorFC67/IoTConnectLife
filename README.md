@@ -137,10 +137,12 @@ conectLife.py: Contains the code to read from sensors, write data to InfluxDB, a
 source kklcd/bin/activate
 ```
 
-3. Run InfluxDB:
+3. Run InfluxDB and Grafana Server:
 
 ```bash
 sudo systemctl start influxdb
+sudo systemctl start grafana-server
+sudo systemctl enable grafana-server
 ```
 
 3. Run the Python script:
